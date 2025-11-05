@@ -1,8 +1,9 @@
 # POPL-Parser-Project
 
-Team Members:
-Alasdair Orr
-Elias Nelson
-Sean Mcefresh
-Ethan Darling
-Dion Burns
+| Team Members     |
+|------------------|
+| Alasdair Orr     |
+| Elias Nelson     |
+| Sean McEfresh    |
+| Ethan Darling    |
+| Dion Burns       |
