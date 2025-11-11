@@ -1,7 +1,7 @@
 grammar python_pd1;
 
 // Simple Python-like grammar (subset) for assignments and expressions
-program: statement+ EOF;
+program: (NEWLINE | statement NEWLINE+)* EOF;
 
 statement: assignment ;
 
@@ -24,7 +24,11 @@ expression
     | list                         # listExpr
     | STRING                       # stringExpr
     | NUMBER                       # numberExpr
+    | TRUE                        # trueExpr
+    | FALSE                       # falseExpr
     | VARIABLE                     # variableExpr
+   
+
     ;
 
 list: '[' (expression (COMMA expression)*)? ']';
@@ -43,9 +47,13 @@ DIV        : '/' ;
 MOD        : '%' ;
 COMMA      : ',' ;
 
+TRUE       : 'True';
+FALSE      : 'False';
 VARIABLE   : [a-zA-Z_][a-zA-Z0-9_]* ;
 NUMBER     : [0-9]+ ('.' [0-9]+)? ;
 STRING     : '"' (~["\r\n])* '"' | '\'' (~['\r\n])* '\'' ;
 
+
 LINE_COMMENT: '#' ~[\r\n]* -> skip ;
-WS : [ \t\r\n]+ -> skip ;
+NEWLINE    : '\r'? '\n' ;
+WS : [ \t\r]+ -> skip ;
