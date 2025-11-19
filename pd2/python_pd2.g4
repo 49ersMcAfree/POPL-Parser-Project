@@ -3,12 +3,16 @@ grammar python_pd2;
 // ----------------- PARSER RULES -----------------
 
 program
-    : (NEWLINE | statement NEWLINE+)* EOF
+    : (NEWLINE | statement)* EOF
     ;
 
 statement
     : assignment
     | ifStatement
+    ;
+
+suite
+    : statement (NEWLINE+ statement)*
     ;
 
 assignment
@@ -75,10 +79,11 @@ list
 // single-line bodies, like:
 //   if x < 5: y = 3
 ifStatement
-    : IF expression COLON statement
-      (NEWLINE+ ELIF expression COLON statement)*
-      (NEWLINE+ ELSE COLON statement)?
+    : IF expression COLON NEWLINE+ suite
+      (NEWLINE+ ELIF expression COLON NEWLINE+ suite)*
+      (NEWLINE+ ELSE COLON NEWLINE+ suite)?
     ;
+
 
 // ----------------- LEXER RULES ------------------
 

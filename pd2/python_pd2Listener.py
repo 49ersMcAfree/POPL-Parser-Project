@@ -26,6 +26,15 @@ class python_pd2Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by python_pd2Parser#suite.
+    def enterSuite(self, ctx:python_pd2Parser.SuiteContext):
+        pass
+
+    # Exit a parse tree produced by python_pd2Parser#suite.
+    def exitSuite(self, ctx:python_pd2Parser.SuiteContext):
+        pass
+
+
     # Enter a parse tree produced by python_pd2Parser#assignment.
     def enterAssignment(self, ctx:python_pd2Parser.AssignmentContext):
         pass

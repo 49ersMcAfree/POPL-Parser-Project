@@ -25,15 +25,24 @@ var4 = 1
 
 flag = True
 
+assign1 = ""
 
-x = 3 + 4 * 5
-y = 10
+if var1 > var2:
+	arith_op1 = 1 + 2
+	assign1 = "text data"
 
-if x < 20 and not y == 0: z = 1
-elif x == 20: z = 2
-else: z = 3
+if var1 <= var2 and var3 == var4:
+	arith_op1 = 1 + 2
+	assign1 = "text data"
+else:
+	arith_op4 = 4.2 * 10
+	arith_op3 *= arith_op4
 
-if x > 0: a = 1
-if x >= 0: b = 2
-if x <= 10: c = 3
-if x != 10 or flag: d = 4
+data = 0
+
+if var1 != var2 or var3 >= var4:
+	flag = True
+elif (not flag) and var3 > 10:
+	flag = False
+else:
+	data = -1
