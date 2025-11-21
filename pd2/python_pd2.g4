@@ -12,7 +12,7 @@ statement
     ;
 
 suite
-    : statement (NEWLINE+ statement)*
+    : statement (NEWLINE statement)*
     ;
 
 assignment
@@ -81,9 +81,8 @@ list
 ifStatement
     : IF expression COLON NEWLINE+ suite
       (NEWLINE+ ELIF expression COLON NEWLINE+ suite)*
-      (NEWLINE+ ELSE COLON NEWLINE+ suite)?
+      (NEWLINE+ ELSE expression? COLON NEWLINE+ suite)?
     ;
-
 
 // ----------------- LEXER RULES ------------------
 
