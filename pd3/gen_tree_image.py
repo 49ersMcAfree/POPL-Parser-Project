@@ -84,7 +84,7 @@ def save_lines_as_image(lines, out_path):
 
 def main():
     repo = Path(__file__).resolve().parent
-    sample = repo / "project_deliverable_2.py"
+    sample = repo / "project_deliverable_3.py"
     if not sample.exists():
         print(f"Sample not found: {sample}")
         return
@@ -160,7 +160,7 @@ def pretty_lines(node, parser, indent=""):
 
 def main():
     repo = Path(__file__).resolve().parent
-    sample = repo / "project_deliverable_2.py"
+    sample = repo / "project_deliverable_3.py"
     if not sample.exists():
         print(f"Sample not found: {sample}")
         return
