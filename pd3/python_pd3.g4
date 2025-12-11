@@ -27,8 +27,8 @@ assignment
 
 ifStatement
     : IF expression ':' block
-      (ELIF expression ':' block)*
-      (ELSE ':' block)?
+      (NEWLINE* ELIF expression ':' block)*
+      (NEWLINE* ELSE ':' block)?
     ;
 
 // ---------- while loop (D3) ----------
@@ -57,8 +57,8 @@ forStatement
 //   for i in list:
 //       process(i)
 block
-    : statement                # singleLineBlock
-    | NEWLINE+ statement+      # multiLineBlock
+    : NEWLINE+ statement (NEWLINE+ statement)*
+    | statement
     ;
 
 // ---------- expressions with conditionals ----------
@@ -94,6 +94,7 @@ term
 
 factor
     : '(' expression ')'      # parenExpr
+    | SUB factor              # unaryMinusExpr
     | list                    # listExpr
     | STRING                  # stringExpr
     | NUMBER                  # numberExpr
@@ -148,6 +149,8 @@ NUMBER     : [0-9]+ ('.' [0-9]+)? ;
 STRING     : '"' (~["\r\n])* '"' | '\'' (~['\r\n])* '\'' ;
 
 LINE_COMMENT : '#' ~[\r\n]* -> skip ;  // D3: Comments already supported (same as pd2)
+BLOCK_COMMENT : '\'\'\'' .*? '\'\'\'' -> skip ;
+BLOCK_COMMENT2 : '"""' .*? '"""' -> skip ;
 NEWLINE      : '\r'? '\n' ;
 WS           : [ \t\r]+ -> skip ;// D3 Grammar
 //

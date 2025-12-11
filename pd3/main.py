@@ -12,6 +12,12 @@ from pathlib import Path
 
 def print_tree(node, indent=""):
     """Pretty-print an ANTLR parse tree node (recursive)."""
+    
+    #null check
+    if node is None: 
+        print(f"{indent}null")
+        return
+    
     if isinstance(node, TerminalNodeImpl):
         print(f"{indent}{node.getText()}")
         return
@@ -28,12 +34,27 @@ def print_tree(node, indent=""):
         for child in node.getChildren():
             print_tree(child, indent + "│   ")
     elif rule_name == "assignment":
+        if node.getChild(0) is None or node.getChild(1) is None or node.getChild(2) is None:
+            print(f"{indent}Incomplete assignment")
+            return
         variable = node.getChild(0).getText()
         operator = node.getChild(1).getText()
         print(f"{indent}├── Variable: {variable}")
         print(f"{indent}├── Operator: {operator}")
         print(f"{indent}└── Value:")
         print_tree(node.getChild(2), indent + "    ")
+    elif rule_name == "ifStatement":
+        print(f"{indent}├── If Statement")
+        for child in node.getChildren():
+            print_tree(child, indent + "│   ")
+    elif rule_name == "whileStatement":
+        print(f"{indent}├── While Statement")
+        for child in node.getChildren():
+            print_tree(child, indent + "│   ")
+    elif rule_name == "forStatement":
+        print(f"{indent}├── For Statement")
+        for child in node.getChildren():
+            print_tree(child, indent + "│   ")
     elif rule_name == "expression":
         if node.getChildCount() == 1:
             print(f"{indent}{node.getChild(0).getText()}")
@@ -41,8 +62,9 @@ def print_tree(node, indent=""):
             for child in node.getChildren():
                 print_tree(child, indent + "    ")
     else:
-        for child in node.getChildren():
-            print_tree(child, indent + "    ")
+        if node.getChildren(): #error check 
+            for child in node.getChildren():
+                print_tree(child, indent + "    ")
 
 
 def main():

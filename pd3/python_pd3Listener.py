@@ -62,21 +62,12 @@ class python_pd3Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by python_pd3Parser#singleLineBlock.
-    def enterSingleLineBlock(self, ctx:python_pd3Parser.SingleLineBlockContext):
+    # Enter a parse tree produced by python_pd3Parser#block.
+    def enterBlock(self, ctx:python_pd3Parser.BlockContext):
         pass
 
-    # Exit a parse tree produced by python_pd3Parser#singleLineBlock.
-    def exitSingleLineBlock(self, ctx:python_pd3Parser.SingleLineBlockContext):
-        pass
-
-
-    # Enter a parse tree produced by python_pd3Parser#multiLineBlock.
-    def enterMultiLineBlock(self, ctx:python_pd3Parser.MultiLineBlockContext):
-        pass
-
-    # Exit a parse tree produced by python_pd3Parser#multiLineBlock.
-    def exitMultiLineBlock(self, ctx:python_pd3Parser.MultiLineBlockContext):
+    # Exit a parse tree produced by python_pd3Parser#block.
+    def exitBlock(self, ctx:python_pd3Parser.BlockContext):
         pass
 
 
@@ -149,6 +140,15 @@ class python_pd3Listener(ParseTreeListener):
 
     # Exit a parse tree produced by python_pd3Parser#parenExpr.
     def exitParenExpr(self, ctx:python_pd3Parser.ParenExprContext):
+        pass
+
+
+    # Enter a parse tree produced by python_pd3Parser#unaryMinusExpr.
+    def enterUnaryMinusExpr(self, ctx:python_pd3Parser.UnaryMinusExprContext):
+        pass
+
+    # Exit a parse tree produced by python_pd3Parser#unaryMinusExpr.
+    def exitUnaryMinusExpr(self, ctx:python_pd3Parser.UnaryMinusExprContext):
         pass
 
 
