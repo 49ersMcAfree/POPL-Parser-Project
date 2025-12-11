@@ -149,4 +149,4 @@ STRING     : '"' (~["\r\n])* '"' | '\'' (~['\r\n])* '\'' ;
 
 LINE_COMMENT : '#' ~[\r\n]* -> skip ;  // D3: Comments already supported (same as pd2)
 NEWLINE      : '\r'? '\n' ;
-WS           : [ \t\r]+ -> skip ;
+WS           : [ \t\r]+ -> skip ;// D3 Grammar
