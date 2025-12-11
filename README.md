@@ -98,8 +98,4 @@ Yes — the same setup and run steps apply to the `pd3` folder. Differences to c
 python .\pd3\main.py
 python .\pd3\gen_tree_image.py
 ```
-
-If you need, I can add a short `pd3/README.md` with the exact ANTLR version used in that folder and a
-one-line run command.
-
 ---
