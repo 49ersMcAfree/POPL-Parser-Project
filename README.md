@@ -5,6 +5,36 @@ lightweight subset of the Python language (assignments, arithmetic, lists,
 strings, numbers, variables, simple if/else). The project was used to
 generate a parse tree image for a provided sample input.
 
+---
+
+## Quick Start
+
+**To run the parser (minimal steps):**
+
+1. Install Python 3.10+ and required packages:
+   ```powershell
+   py -m pip install antlr4-python3-runtime==4.13.2 Pillow
+   ```
+
+2. Run the parser (from repository root):
+   ```powershell
+   py .\pd2\main.py
+   ```
+   or
+   ```powershell
+   py .\pd3\main.py
+   ```
+
+3. Generate parse-tree image:
+   ```powershell
+   py .\pd2\gen_tree_image.py
+   ```
+   or
+   ```powershell
+   py .\pd3\gen_tree_image.py
+   ```
+
+---
 
 ## Team Members
 
@@ -29,19 +59,19 @@ generate a parse tree image for a provided sample input.
 ## Setup (Windows PowerShell)
 
 1. Install Java (if you plan to regenerate the parser): download and install a JDK/JRE (11+).
-2. Install Python 3.10+ and ensure `python` is on your PATH.
+2. Install Python 3.10+ and ensure `py` launcher is available (comes with Python installer on Windows).
 3. (Optional) Create and activate a virtual environment:
 
 ```powershell
-python -m venv .venv
+py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
 4. Install the required Python packages:
 
 ```powershell
-python -m pip install --upgrade pip
-python -m pip install antlr4-python3-runtime==4.13.2 Pillow
+py -m pip install --upgrade pip
+py -m pip install antlr4-python3-runtime==4.13.2 Pillow
 ```
 
 5. (Only if you need to regenerate the parser from the grammar) Download the ANTLR jar
@@ -66,13 +96,13 @@ Notes:
 - Print a compact parse tree and a pretty textual tree to the console (uses the provided `pd2/main.py`):
 
 ```powershell
-python .\pd2\main.py
+py .\pd2\main.py
 ```
 
 - Produce a parse-tree image (if `Pillow` is installed) using the generator helper:
 
 ```powershell
-python .\pd2\gen_tree_image.py
+py .\pd2\gen_tree_image.py
 ```
 
 This will save `pd2/parse_tree.jpg` (or `pd2/parse_tree_from_main.jpg` depending on which helper you run).
@@ -81,7 +111,7 @@ If you prefer to capture the exact console output from `pd2/main.py` and render 
 run the capture script (if present):
 
 ```powershell
-python .\pd2\gen_tree_image_from_main.py
+py .\pd2\gen_tree_image_from_main.py
 ```
 
 ### Does this apply to `pd3`?
@@ -95,7 +125,7 @@ Yes — the same setup and run steps apply to the `pd3` folder. Differences to c
 - Run from the repository root so the `pd3` package imports resolve correctly:
 
 ```powershell
-python .\pd3\main.py
-python .\pd3\gen_tree_image.py
+py .\pd3\main.py
+py .\pd3\gen_tree_image.py
 ```
 ---
